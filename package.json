@@ -1,0 +1,13 @@
+{
+  "name": "revenue",
+  "version": "0.1.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "git@github.com:revenueProject/revenue.git",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^1.4.15"
+  }
+}

@@ -27,6 +27,14 @@ module.exports = {
       'process.env': {NODE_ENV: JSON.stringify('development')},
     }),
     new webpack.NamedModulesPlugin(),
+    new webpack.LoaderOptionsPlugin({
+            // test: /\.xxx$/, // may apply this only for some modules
+      options: {
+        postcss: [
+          require('autoprefixer'),
+        ],
+      },
+    }),
   ],
   module: {
     rules: [
@@ -41,9 +49,22 @@ module.exports = {
       {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract({
-          fallbackLoader: 'style-loader',
+          fallbackLoader: 'css-loader',
           loader: 'css-loader',
         }),
+        include: [
+          path.join(__dirname, 'node_modules'),
+          path.join(__dirname, 'client/style.css'),
+        ],
+      },
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: 'style-loader',
+          loader: 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader',
+        }),
+        include: path.join(__dirname, 'client'),
+        exclude: path.join(__dirname, 'client/style.css'),
       },
       {
         test: /\.(eot|woff|woff2|ttf|svg|png|jpg)$/,

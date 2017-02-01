@@ -1,0 +1,9 @@
+.mainLayout {
+  height: 100vh;
+  display: flex;
+}
+
+.contentPanel {
+  height: 100%;
+  flex-grow: 1;
+}

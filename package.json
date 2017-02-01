@@ -3,11 +3,38 @@
   "version": "0.1.0",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "lint": "eslint .",
+    "start": "concurrently \" npm run watch\" \"npm run run \"",
+    "run": "electron .",
+    "watch": "BABEL_ENV=server webpack --config webpack.dev.config.js --progress --colors --watch"
   },
   "repository": "git@github.com:revenueProject/revenue.git",
   "license": "MIT",
   "dependencies": {
-    "electron": "^1.4.15"
+    "electron": "^1.4.15",
+    "electron-reload": "^1.1.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "webpack": "^2.2.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.7.2",
+    "babel-core": "^6.22.1",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.22.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "babel-regenerator-runtime": "^6.5.0",
+    "concurrently": "^3.1.0",
+    "css-loader": "^0.26.1",
+    "eslint": "^3.14.1",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.7.1",
+    "extract-text-webpack-plugin": "2",
+    "postcss-loader": "^1.2.2",
+    "style-loader": "^0.13.1"
   }
 }

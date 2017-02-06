@@ -1,0 +1,31 @@
+.menu {
+  list-style: none;
+  padding: 0;
+}
+
+.menuItem {
+  font-size: 18px;
+  padding: 10px 30px;
+  width: 100%;
+  display: block;
+  color: #83839d;
+  text-decoration: none;
+  border-left: 2px solid transparent;
+}
+
+.menuItem:hover {
+  background-color: #2a293b;
+  color: #ffffff;
+  text-decoration: none;
+  border-left: 2px solid #f4d583;
+}
+
+.menuIcon {
+  font-size: 21px;
+  margin-right: 10px;
+}
+
+
+.menuItem:hover .menuIcon {
+  color: #f4d583;
+}

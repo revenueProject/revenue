@@ -1,0 +1,14 @@
+.logoContainer {
+  background-color: #2a293b;
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  color: #ffffff;
+  font-weight: lighter;
+  margin: 0;
+  margin-left: 30px;
+  font-size: 36px;
+}

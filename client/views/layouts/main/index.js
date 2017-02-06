@@ -2,10 +2,13 @@ import React from 'react';
 import style from './main.css';
 
 import SidePanel from '../../containers/SidePanelContainer';
+import NavBar from '../../containers/NavBarContainer';
 
 export default () => (
-  <div className={style.mainLayout} >
+  <section className={style.mainLayout} >
     <SidePanel />
-    <div className={style.contentPanel} />
-  </div>
+    <section className={style.contentPanel}>
+      <NavBar />
+    </section>
+  </section>
 );

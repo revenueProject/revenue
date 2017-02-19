@@ -15,7 +15,7 @@ export default () => (
         title="Мой баланс"
       />
       <MenuItem
-        link="balance"
+        link="/counts"
         icon={IconClasses.CREDIT_CARD}
         title="Мои счета"
       />

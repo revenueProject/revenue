@@ -6,7 +6,7 @@
     "lint": "eslint .",
     "start": "concurrently \" npm run watch\" \"npm run run \"",
     "run": "electron .",
-    "watch": "BABEL_ENV=server webpack --config webpack.dev.config.js --progress --colors --watch"
+    "watch": "webpack --config webpack.dev.config.js --progress --colors --watch"
   },
   "repository": "git@github.com:revenueProject/revenue.git",
   "license": "MIT",

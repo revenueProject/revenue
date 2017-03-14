@@ -1,0 +1,5 @@
+.countsContainer {
+  display: flex;
+  padding: 0 10px;
+  flex-wrap: wrap;
+}

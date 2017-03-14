@@ -1,1 +1,5 @@
-@import "~@blueprintjs/core";
+.icon-btn {
+  background: transparent!important;
+  border: none;
+  box-shadow: none!important;
+}

@@ -43,11 +43,11 @@ class MyCountsContainer extends Component {
     this.props.dispatch(saveNewCount(this.state.countName));
     this.setState({
       isOpenDialog: false,
+      countName: ''
     });
   }
 
   render() {
-    debugger;
     return (
       <MyCounts
         openDialog={this.openDialog}
@@ -55,7 +55,7 @@ class MyCountsContainer extends Component {
         changeCountName={this.changeCountName}
         saveCount={this.saveCount}
         {...this.state}
-        counts={this.props.myCounts}
+        {...this.props.myCounts}
       />
     );
   }

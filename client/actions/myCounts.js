@@ -4,7 +4,7 @@ export const saveCountSuccess = createAction('saveCountSuccess');
 export const getCountsSuccess = createAction('getCountsSuccess');
 
 export const saveNewCount = (countName) => (dispatch) => {
-  db.insert({countName: countName, type: 'Counts'}, (err, newDoc) => {
+  db.insert({countName: countName, type: 'Counts', balance: 0}, (err, newDoc) => {
     if (!err) dispatch(saveCountSuccess(newDoc));
   });
 }

@@ -12,7 +12,7 @@ export default (props) => (
         <CountPanel {...props} />
         <AddCountDialog {...props} />
         <div className={style.countsContainer}>
-            {props.counts.map((count) => <Count key={count._id} {...count}/>)}
+            {props.counts.map((count) => <Count key={count._id} {...count} deleteCount={props.deleteCount}/>)}
         </div>
     </div>
 );

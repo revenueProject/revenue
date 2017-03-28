@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import MyCounts from '../layouts/MyCounts';
-import { saveNewCount, getCounts } from '../../actions/myCounts';
+import { saveNewCount, getCounts, deleteCountAction } from '../../actions/myCounts';
 
 
 class MyCountsContainer extends Component {
@@ -11,6 +11,7 @@ class MyCountsContainer extends Component {
     this.closeDialog = this.closeDialog.bind(this);
     this.changeCountName = this.changeCountName.bind(this);
     this.saveCount = this.saveCount.bind(this);
+    this.deleteCount = this.deleteCount.bind(this);
     this.state = {
       isOpenDialog: false,
       countName: '',
@@ -47,6 +48,10 @@ class MyCountsContainer extends Component {
     });
   }
 
+  deleteCount(countId) {
+    this.props.dispatch(deleteCountAction(countId));
+  }
+
   render() {
     return (
       <MyCounts
@@ -54,6 +59,7 @@ class MyCountsContainer extends Component {
         closeDialog={this.closeDialog}
         changeCountName={this.changeCountName}
         saveCount={this.saveCount}
+        deleteCount={this.deleteCount}
         {...this.state}
         {...this.props.myCounts}
       />

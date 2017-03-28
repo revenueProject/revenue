@@ -9,6 +9,12 @@ export const saveNewCount = (countName) => (dispatch) => {
   });
 }
 
+export const deleteCountAction = (countId) => (dispatch) => {
+  db.remove({_id: countId}, (err, numRemoved) => {
+    dispatch(getCounts());
+  });
+}
+
 export const getCounts = () => (dispatch) => {
   db.find({type: 'Counts'}, (err, res) => dispatch(getCountsSuccess(res)));
 }

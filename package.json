@@ -12,6 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "@blueprintjs/core": "^1.7.0",
+    "@blueprintjs/table": "^1.11.0",
     "electron": "^1.4.15",
     "electron-reload": "^1.1.0",
     "nedb": "^1.8.0",

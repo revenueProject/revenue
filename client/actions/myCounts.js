@@ -4,17 +4,17 @@ export const saveCountSuccess = createAction('saveCountSuccess');
 export const getCountsSuccess = createAction('getCountsSuccess');
 
 export const saveNewCount = (countName) => (dispatch) => {
-  db.insert({countName: countName, type: 'Counts', balance: 0}, (err, newDoc) => {
+  db.insert({ countName: countName, type: 'Counts', balance: 0 }, (err, newDoc) => {
     if (!err) dispatch(saveCountSuccess(newDoc));
   });
-}
-
-export const deleteCountAction = (countId) => (dispatch) => {
-  db.remove({_id: countId}, (err, numRemoved) => {
-    dispatch(getCounts());
-  });
-}
+};
 
 export const getCounts = () => (dispatch) => {
-  db.find({type: 'Counts'}, (err, res) => dispatch(getCountsSuccess(res)));
-}
+  db.find({ type: 'Counts' }, (err, res) => dispatch(getCountsSuccess(res)));
+};
+
+export const deleteCountAction = (countId) => (dispatch) => {
+  db.remove({ _id: countId }, () => {
+    dispatch(getCounts());
+  });
+};

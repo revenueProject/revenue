@@ -23,7 +23,8 @@
     "no-mixed-operators": "off",
     "no-useless-escape": "off",
     "arrow-parens": "off",
-    "no-confusing-arrow": "off"
+    "no-confusing-arrow": "off",
+    "no-underscore-dangle": "off"
   },
   "env": {
     "browser": true,

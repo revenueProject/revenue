@@ -1,8 +1,13 @@
 import { createReducer } from 'redux-act';
+import { getCountSuccess, getLogsSuccess } from '../actions/count';
 
 const initialState = {
-  balance: 0,
+  count: {},
+  logs: [],
 };
 
-export default createReducer({}, initialState);
+export default createReducer({
+  [getCountSuccess]: (state, result) => ({ ...state, count: result }),
+  [getLogsSuccess]: (state, result) => ({ ...state, logs: result }),
+}, initialState);
 

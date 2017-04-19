@@ -15,7 +15,7 @@ class MyCountsContainer extends Component {
     this.state = {
       isOpenDialog: false,
       countName: '',
-    }
+    };
   }
 
   componentWillMount() {

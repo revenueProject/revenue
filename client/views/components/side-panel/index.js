@@ -10,17 +10,12 @@ export default () => (
     <Logo />
     <Menu>
       <MenuItem
-        link="balance"
-        icon={IconClasses.DASHBOARD}
-        title="Мой баланс"
-      />
-      <MenuItem
         link="/counts"
         icon={IconClasses.CREDIT_CARD}
         title="Мои счета"
       />
       <MenuItem
-        link="balance"
+        link="/targets"
         icon={IconClasses.CONFIRM}
         title="Мои цели"
       />

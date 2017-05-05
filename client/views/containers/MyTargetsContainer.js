@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import MyTargets from '../layouts/MyTargets';
-import { saveNewTarget } from '../../actions/myTargets';
+import { saveNewTarget, getTargets, deleteTargetAction } from '../../actions/myTargets';
+import { getCounts } from '../../actions/myCounts';
 
 
 class MyTargetsContainer extends Component {
@@ -12,11 +13,17 @@ class MyTargetsContainer extends Component {
     this.changeTargetName = this.changeTargetName.bind(this);
     this.changeSum = this.changeSum.bind(this);
     this.saveTarget = this.saveTarget.bind(this);
+    this.deleteTarget = this.deleteTarget.bind(this);
     this.state = {
       isOpenDialog: false,
       targetName: '',
       sum: '',
     };
+  }
+
+  componentWillMount() {
+    this.props.dispatch(getTargets());
+    this.props.dispatch(getCounts());
   }
 
   openDialog() {
@@ -54,6 +61,10 @@ class MyTargetsContainer extends Component {
     });
   }
 
+  deleteTarget(targetId) {
+    this.props.dispatch(deleteTargetAction(targetId));
+  }
+
   render() {
     return (
       <MyTargets
@@ -62,7 +73,9 @@ class MyTargetsContainer extends Component {
         changeTargetName={this.changeTargetName}
         changeSum={this.changeSum}
         saveTarget={this.saveTarget}
+        deleteTarget={this.deleteTarget}
         {...this.state}
+        {...this.props}
       />
     );
   }
@@ -71,6 +84,7 @@ class MyTargetsContainer extends Component {
 const mapStateToProps = (state) => {
   return {
     myTargets: state.myTargets,
+    moCounts: state.moCounts,
   };
 };
 

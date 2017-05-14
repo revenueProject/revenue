@@ -4,7 +4,7 @@ export const saveTargetSuccess = createAction('saveTargetSuccess');
 export const getTargetSuccess = createAction('getTargetSuccess');
 
 export const saveNewTarget = ({targetName, sum}) => (dispatch) => {
-  db.insert({ targetName: targetName, type: 'Targets', sum: sum }, (err, newDoc) => {
+  db.insert({ targetName: targetName, type: 'Targets', sum: sum, attachments: [] }, (err, newDoc) => {
     if (!err) dispatch(saveTargetSuccess(newDoc));
   });
 };

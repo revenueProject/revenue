@@ -1,44 +1,34 @@
 import React from 'react';
 import { Button } from '@blueprintjs/core';
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
+import { Link } from 'react-router';
 import style from './target.css';
 import colors from './colors';
 
 
+const getCountName = (props, countId) => {
+  const count = props.myCounts.counts.find((count) => count._id === countId);
+
+  return count && count.countName;
+};
+
+
 const getData = (props) => {
+  const remainder = { name: 'Остаток', value: props.target.sum, fill: '#ccc' };
   const result = [];
-  let sum = 0;
-  props.moCounts.counts.forEach((count, index) => {
-    sum += count.balance;
+  props.target.attachments.forEach((attachment, index) => {
+    remainder.value -= attachment.value;
     result.push({
-      name: count.countName,
-      value: count.balance,
-      colors: colors[index % colors.length],
+      name: getCountName(props, attachment.count),
+      value: Number(attachment.value),
+      fill: colors[index % colors.length],
     });
   });
 
-  const reminder = {
-    name: 'Остаток',
-    value: props.target.sum - sum,
-    colors: '#808080',
-  };
-
-  if (props.target.sum - sum > 0) {
-    result.push(reminder);
+  if (remainder.value > 0) {
+    result.push(remainder);
   }
-
-  return {
-    result: result,
-    reminder: props.target.sum - sum,
-  };
-};
-
-const getTitle = (props, reminder) => {
-  if (reminder > 0) {
-    return `${props.target.targetName} (${reminder} / ${props.target.sum})`;
-  }
-
-  return `${props.target.targetName} (${props.target.sum} - Успешно)`;
+  return result;
 };
 
 export default (props) => {
@@ -50,16 +40,14 @@ export default (props) => {
       </div>
       <PieChart width={310} height={310}>
         <Pie
-          data={data.result}
+          data={data}
           innerRadius={90}
         >
-          {data.result.map((item) => (
-            <Cell fill={item.colors} />
-          ))}
+          {data.map((entry) => <Cell fill={entry.fill} />)}
         </Pie>
         <Tooltip />
       </PieChart>
-      <span className={style.title}>{getTitle(props, data.reminder)}</span>
+      <Link to={`/targets/${props.target._id}`}>{props.target.targetName}</Link>
     </div>
   );
 };

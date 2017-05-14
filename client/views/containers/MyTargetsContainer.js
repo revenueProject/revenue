@@ -84,7 +84,7 @@ class MyTargetsContainer extends Component {
 const mapStateToProps = (state) => {
   return {
     myTargets: state.myTargets,
-    moCounts: state.moCounts,
+    myCounts: state.moCounts,
   };
 };
 

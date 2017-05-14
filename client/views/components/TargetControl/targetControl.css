@@ -1,0 +1,27 @@
+.targetControllWrapper {
+    width: 500px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.targetControllSum {
+    margin: 10px 0;
+    width: 100px;
+}
+
+.targetControll {
+    margin: 10px 0;
+}
+
+.buttonWrapper {
+    display: flex;
+}
+
+.buttonItem {
+    flex-grow: 1;
+}
+
+.balanceTitle {
+    text-align: center;
+    margin-bottom: 30px;
+}

@@ -1,0 +1,10 @@
+.reportsPanel {
+    margin: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    margin: 0;
+    font-weight: lighter;
+}

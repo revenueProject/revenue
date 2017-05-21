@@ -20,7 +20,7 @@ export default () => (
         title="Мои цели"
       />
       <MenuItem
-        link="balance"
+        link="/reports"
         icon={IconClasses.TIMELINE_AREA_CHART}
         title="Финансовый отчет"
       />

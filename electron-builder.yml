@@ -1,0 +1,18 @@
+appId: com.revenue.app
+copyright: Revenue co
+productName: Revenue
+
+asar: true
+
+directories:
+  buildResources: public/
+  output: dist/
+
+files:
+  - package.json
+  - main.js
+  - node_modules/
+
+
+win:
+  target: nsis

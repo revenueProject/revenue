@@ -6,14 +6,17 @@
     "lint": "eslint .",
     "start": "concurrently \" npm run watch\" \"npm run run \"",
     "run": "electron .",
-    "watch": "webpack --config webpack.dev.config.js --progress --colors --watch"
+    "watch": "webpack --config webpack.dev.config.js --progress --colors --watch",
+    "pack": "electron-packager ."
   },
   "repository": "git@github.com:revenueProject/revenue.git",
   "license": "MIT",
   "dependencies": {
     "@blueprintjs/core": "^1.7.0",
     "@blueprintjs/table": "^1.11.0",
-    "electron": "^1.4.15",
+    "builder": "^3.2.2",
+    "electron": "^1.6.8",
+    "electron-packager": "^8.7.0",
     "electron-reload": "^1.1.0",
     "moment": "^2.18.1",
     "nedb": "^1.8.0",

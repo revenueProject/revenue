@@ -14,12 +14,13 @@ class ReportsContainer extends Component {
   }
 
   get logs() {
-    const summary = { sum: 0, comment: 'Итого' };
+    const summary = { sum: 0, date: 'Итого' };
     const updateLogs = this.props.reportState.logs.map((log) => {
+      const updateLog = { ...log };
       const count = this.props.myCounts.counts.find((item) => item._id === log.count);
-      log.count = (count && count.countName) || log.count; 
+      updateLog.count = (count && count.countName) || 'Счет удален';
       summary.sum = log.action === 'Пополнение' ? summary.sum + log.sum : summary.sum - log.sum;
-      return log;
+      return updateLog;
     });
 
     updateLogs.push(summary);

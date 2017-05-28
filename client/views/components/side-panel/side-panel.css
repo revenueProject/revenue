@@ -1,4 +1,5 @@
 .sidePanel {
   width: 300px;
+  min-width: 300px;
   background-color: #2e2e48;
 }

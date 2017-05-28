@@ -17,4 +17,5 @@
 
 .reportTitle {
   color: #2e2e48;
+  text-transform: capitalize;
 }

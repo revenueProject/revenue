@@ -9,8 +9,6 @@ let win;
 function createWindow() {
   win = new BrowserWindow();
 
-  win.maximize();
-
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file',
@@ -20,6 +18,8 @@ function createWindow() {
   win.on('closed', () => {
     win = null;
   });
+
+  win.webContents.openDevTools();
 }
 
 app.on('ready', createWindow);

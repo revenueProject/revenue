@@ -13,6 +13,7 @@
   border-left: 2px solid transparent;
 }
 
+.active,
 .menuItem:hover {
   background-color: #2a293b;
   color: #ffffff;
@@ -25,7 +26,7 @@
   margin-right: 10px;
 }
 
-
+.active,
 .menuItem:hover .menuIcon {
   color: #f4d583;
 }
